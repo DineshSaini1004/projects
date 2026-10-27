@@ -1,6 +1,6 @@
 class Bankaccount{
   private String accountHolder;
-  double balance;
+  private double balance;
 
   public Bankaccount(String name, double balance){
     accountHolder = name;
@@ -22,6 +22,17 @@ class Bankaccount{
       }else{
         System.out.println("insufficient balance");
       }
+    }
+
+    public void transfer(Bankaccount account, double amount){
+      if(amount < balance && amount > 0){
+        balance = balance - amount;
+        account.balance = account.balance + amount;
+        System.out.println("transfer successful");
+      }else{
+        System.out.println("insufficient balance");
+      }
+      
     }
 
         public void display() {
